@@ -1,6 +1,10 @@
 # This is a Guide for using MultiLang Module
+### 1. Install
 
-### 1. Init
+```
+composer require simsol/yii2-multilang:"@dev"
+```
+### 2. Init
     ......
     'modules' => [
         'multilang' => [
@@ -14,7 +18,7 @@
     ],
     ......
 
-### 2. Run Migrations
+### 3. Run Migrations
 ```
 ./yii migrate --migrationPath=@simsol/multilang/migrations
 ```
