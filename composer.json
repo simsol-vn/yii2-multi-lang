@@ -1,0 +1,22 @@
+{
+  "name": "simsol/yii2-multilang",
+  "description": "Extensions for multi languages in objects",
+  "type": "yii2-extension",
+  "authors": [
+    {
+      "name": "tam.tk",
+      "email": "tamtran@lcs.com.vn"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "simsol\\multilang\\": ""
+    }
+  },
+  "require": {
+    "yiisoft/yii2": "~2.0.14",
+    "yiisoft/yii2-bootstrap": "~2.0.0",
+    "rmrevin/yii2-fontawesome": "~3.5"
+  }
+}

@@ -1,0 +1,17 @@
+.btn-translate-collapse{
+    color: #333 !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+.btn-translate-collapse.collapsed::before {
+    content: '\f0aa';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.btn-translate-collapse::before {
+    content: '\f0ab';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
