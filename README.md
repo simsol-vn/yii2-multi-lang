@@ -2,7 +2,7 @@
 ### 1. Install
 
 ```
-composer require simsol/yii2-multilang:"@dev"
+composer require simsol/yii2-multilang
 ```
 ### 2. Init
     ......
