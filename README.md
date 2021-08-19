@@ -31,10 +31,12 @@ Please follow below steps to set up and use this extension.
 #### a. In model
 
 - Add property ```translation``` to your model class.
+
     ```
     public $translations;
     ```
 - Add rule for ```translation``` property.
+
     ```
     /**
       * {@inheritdoc}
@@ -48,6 +50,7 @@ Please follow below steps to set up and use this extension.
       }
     ```
 - Modify ```afterSave()``` and add this line:
+
   ```
   Translate::saveTranslation($this->translations,$this->id_model,Model::class);
   ```
