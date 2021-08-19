@@ -28,7 +28,9 @@ $translations = Translate::loadTranslation($model,$field);
     <div class="panel-heading">
         <?=Module::t('Translation for') . ' "' . $fieldLabel . '"'?>
         <div class="pull-right">
-            <button type="button" class="btn btn-xs btn-link btn-translate-collapse" data-toggle="collapse" data-target="#<?=$panelId?>"></button>
+            <button type="button" class="btn btn-xs btn-link btn-translate-collapse" data-toggle="collapse" data-target="#<?=$panelId?>">
+                <span class="icon"></span>
+            </button>
         </div>
         <div class="clearfix"></div>
     </div>
