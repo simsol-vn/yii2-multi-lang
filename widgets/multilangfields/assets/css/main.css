@@ -5,13 +5,11 @@
 }
 
 .btn-translate-collapse.collapsed::before {
-    content: '\f0aa';
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+    content: '';
+    background: url("../img/chevron-circle-down-solid.svg");
 }
 
 .btn-translate-collapse::before {
-    content: '\f0ab';
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+    content: '';
+    background: url("../img/chevron-circle-up-solid.svg");
 }
