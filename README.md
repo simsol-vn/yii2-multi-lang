@@ -60,18 +60,19 @@ Please follow below steps to set up and use this extension.
 - Add this widget for attributes that you want to provide translation to your create or update form.
 
   ```
-    <?=$form->field($model,'attribute')->widget(MultiLangFieldsWidget::class)->label(false)?>
+  <?=$form->field($model,'attribute')->widget(MultiLangFieldsWidget::class)->label(false)?>
   ```
 - Available config:
   - attributeLabel: In case you want to use another name for model attribute, default is model's attribute name.
   - inputType: Default is text input, available options:
     - Text Input: MultiLangFieldsWidget::TYPE_TEXT_INPUT
     - Textarea: MultiLangFieldsWidget::TYPE_TEXTAREA
-    
+  
   ```
-    <?=$form->field($model,'attribute')->widget(MultiLangFieldsWidget::class,[
-                'inputType' => MultiLangFieldsWidget::TYPE_TEXTAREA,
-                'attributeLabel' => 'Another name',
-            ])->label(false)?>
+  <?=$form->field($model,'attribute')->widget(MultiLangFieldsWidget::class,[
+                  'inputType' => MultiLangFieldsWidget::TYPE_TEXTAREA,
+                  'attributeLabel' => 'Another name',
+              ])->label(false)?>
   ```
+
 
