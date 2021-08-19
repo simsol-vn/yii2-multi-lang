@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $field string */
-/* @var $fieldLabel string */
+/* @var $attributeLabel string */
 /* @var $inputType string */
 /* @var $id string */
 
@@ -19,7 +19,7 @@ $languages = [];
 if ($module !== null) {
     $languages = $module->languages;
 }
-$fieldLabel   = $fieldLabel ?: $model->getAttributeLabel($field);
+$fieldLabel   = $attributeLabel ?: $model->getAttributeLabel($field);
 $panelId      = $id . '-' . time();
 $translations = Translate::loadTranslation($model,$field);
 ?>

@@ -10,7 +10,7 @@ class MultiLangFieldsWidget extends InputWidget
     const TYPE_TEXT_INPUT = 'TEXT_INPUT';
     const TYPE_TEXTAREA   = 'TEXTAREA';
     
-    public $fieldLabel = null;
+    public $attributeLabel = null;
     public $inputType  = self::TYPE_TEXT_INPUT;
     
     
@@ -49,7 +49,7 @@ class MultiLangFieldsWidget extends InputWidget
         echo $this->render('index',[
             'field'      => $this->attribute,
             'model'      => $this->model,
-            'fieldLabel' => $this->fieldLabel,
+            'attributeLabel' => $this->attributeLabel,
             'inputType'  => $this->inputType,
             'id'         => $this->options['id'],
         ]);
