@@ -68,7 +68,7 @@ Please follow below steps to set up and use this extension.
     - Text Input: MultiLangFieldsWidget::TYPE_TEXT_INPUT
     - Textarea: MultiLangFieldsWidget::TYPE_TEXTAREA
     
-    ```
+  ```
         <?=$form->field($model,'attribute')->widget(MultiLangFieldsWidget::class,[
               'inputType' => MultiLangFieldsWidget::TYPE_TEXTAREA,
               'attributeLabel' => 'Another name',
