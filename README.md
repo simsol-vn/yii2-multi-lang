@@ -1,3 +1,5 @@
+[![Latest Stable Version](http://poser.pugx.org/simsol/yii2-multilang/v)](https://packagist.org/packages/simsol/yii2-multilang) [![Total Downloads](http://poser.pugx.org/simsol/yii2-multilang/downloads)](https://packagist.org/packages/simsol/yii2-multilang) [![Latest Unstable Version](http://poser.pugx.org/simsol/yii2-multilang/v/unstable)](https://packagist.org/packages/simsol/yii2-multilang) [![License](http://poser.pugx.org/simsol/yii2-multilang/license)](https://packagist.org/packages/simsol/yii2-multilang)
+
 # This is a Guide for using MultiLang Module
 ### 1. Install
 
@@ -69,3 +71,4 @@ Please follow below steps to set up and use this extension.
           'attributeLabel' => 'Another name',
       ])->label(false)?>
     ```
+
