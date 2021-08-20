@@ -50,7 +50,7 @@ class MultiLangFieldsWidget extends InputWidget
         echo $this->render('index',[
             'field'          => $this->attribute,
             'model'          => $this->model,
-            'modelClass'          => $this->modelClass,
+            'modelClass'     => $this->modelClass,
             'attributeLabel' => $this->attributeLabel,
             'inputType'      => $this->inputType,
             'id'             => $this->options['id'],
