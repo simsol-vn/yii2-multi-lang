@@ -23,6 +23,10 @@ if ($module !== null) {
 $fieldLabel   = $attributeLabel ?: $model->getAttributeLabel($field);
 $panelId      = $id . '-' . time();
 $translations = Translate::loadTranslation($model,$field,$modelClass);
+Yii::debug(Translate::loadTranslation($model));
+Yii::debug(Translate::loadTranslation($model,'title'));
+Yii::debug(Translate::loadTranslation($model,'title',null,true));
+Yii::debug(Translate::loadTranslation($model,null,null,true));
 ?>
 
 <div class="panel panel-default panel-translations" id="<?=$id?>">

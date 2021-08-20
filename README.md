@@ -74,5 +74,64 @@ Please follow below steps to set up and use this extension.
                   'attributeLabel' => 'Another name',
               ])->label(false)?>
   ```
+  
+#### c. Query translations
+
+```
+ Translate::loadTranslation($model,$attribute = null,$modelClass = null,$useAppLanguage = false)
+```
+- ```$model```: Required. Model to load translations.
+- ```$attribute```: Optional. Translations for specified attribute will be queried if provided.
+- ```$modelClass```: Optional. In case model class name is different from provided model. For example:  ```app\models\form\CustomerForm``` and ```app\models\Customer```
+- ```$useAppLanguage```: Optional. If true, value of ```Yii::$app->language``` will be used to query for current app language.
+
+- Query results: Result might be varied depends on provided parameters. See examples below:
+```
+Translate::loadTranslation($model);
+
+Result:
+
+[
+    'description' => [
+        'en' => 'Description of data.',
+        'vi' => 'Mô tả của dữ liệu',
+    ],
+    'title' => [
+        'en' => 'Title of data',
+        'vi' => 'Tiêu đề của dữ liệu',
+    ],
+]
+```
+
+```
+Translate::loadTranslation($model,'title');
+
+Result:
+
+[
+        'en' => 'Title of data',
+        'vi' => 'Tiêu đề của dữ liệu',
+]
+```
+
+```
+Translate::loadTranslation($model,'title',null,true);
+
+Result:
+
+'Title of data'
+```
+
+```
+Translate::loadTranslation($model,null,null,true);
+
+Result:
+
+[
+    'description' => 'Description of data.',
+    'title' => 'Title of data',
+]
+```
+
 
 
