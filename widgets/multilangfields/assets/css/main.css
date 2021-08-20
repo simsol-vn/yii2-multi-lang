@@ -2,6 +2,8 @@
     color: #333 !important;
     text-decoration: none !important;
     outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
 }
 
 .btn-translate-collapse .icon {
