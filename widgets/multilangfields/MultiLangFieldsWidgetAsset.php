@@ -8,7 +8,7 @@ class MultiLangFieldsWidgetAsset extends AssetBundle
 {
     public $sourcePath = '@simsol/multilang/widgets/multilangfields/assets';
     public $css        = [
-        'css/main.css?v=103',
+        'css/main.css?v=104',
     ];
     public $js         = [
     
