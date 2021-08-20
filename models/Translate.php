@@ -23,8 +23,6 @@ use function get_class;
  */
 class Translate extends \yii\db\ActiveRecord
 {
-   
-    
     /**
      * {@inheritdoc}
      */
@@ -98,18 +96,13 @@ class Translate extends \yii\db\ActiveRecord
         }
     }
     
-    /**
-     * @param       $model \yii\db\ActiveRecord
-     * @param false $useCurrentLanguage
-     *
-     * @return array
-     */
-    public static function loadTranslation($model,$currentField = null,$useCurrentLanguage = false)
+   
+    public static function loadTranslation($model,$attribute = null,$modelClass = null,$useAppLanguage = false)
     {
         $result          = [];
-        $currentLanguage = Yii::$app->language;
+        $appLanguage = Yii::$app->language;
         if ($model !== null && $model instanceof Model) {
-            $objectClass = get_class($model);
+            $objectClass = $modelClass !== null ? $modelClass : get_class($model);
             $objectId    = $model->getPrimaryKey();
             $fieldsWhere = [
                 'AND',
@@ -117,8 +110,8 @@ class Translate extends \yii\db\ActiveRecord
                 ['object_class' => $objectClass],
             ];
             
-            if ($currentField !== null) {
-                $fieldsWhere[] = ['object_field' => $currentField];
+            if ($attribute !== null) {
+                $fieldsWhere[] = ['object_field' => $attribute];
             }
             
             $fields = Translate::find()->select(['object_field'])->where($fieldsWhere)->groupBy(['object_field'])->column();
@@ -131,20 +124,20 @@ class Translate extends \yii\db\ActiveRecord
                         ['object_class' => $objectClass],
                         ['object_field' => $field],
                     ];
-                    if ($useCurrentLanguage === true) {
-                        $valuesWhere[] = ['language_code' => $currentLanguage];
+                    if ($useAppLanguage === true) {
+                        $valuesWhere[] = ['language_code' => $appLanguage];
                     }
                     $values = Translate::find()->select(['language_code','value'])->where($valuesWhere)->asArray()->all();
                     if ($values !== null && count($values) > 0) {
                         $translations = [];
                         foreach ($values as $value) {
-                            if ($useCurrentLanguage === true) {
+                            if ($useAppLanguage === true) {
                                 $translations = $value['value'];
                             }else {
                                 $translations[$value['language_code']] = $value['value'];
                             }
                         }
-                        if ($currentField !== null) {
+                        if ($attribute !== null) {
                             $result = $translations;
                         }else {
                             $result[$field] = $translations;

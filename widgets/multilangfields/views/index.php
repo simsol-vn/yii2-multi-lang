@@ -4,6 +4,7 @@
 /* @var $attributeLabel string */
 /* @var $inputType string */
 /* @var $id string */
+/* @var $modelClass string */
 
 /* @var $model */
 
@@ -21,10 +22,10 @@ if ($module !== null) {
 }
 $fieldLabel   = $attributeLabel ?: $model->getAttributeLabel($field);
 $panelId      = $id . '-' . time();
-$translations = Translate::loadTranslation($model,$field);
+$translations = Translate::loadTranslation($model,$field,$modelClass);
 ?>
 
-<div class="panel panel-default" id="<?=$id?>">
+<div class="panel panel-default panel-translations" id="<?=$id?>">
     <div class="panel-heading">
         <?=Module::t('Translation for') . ' "' . $fieldLabel . '"'?>
         <div class="pull-right">
@@ -44,7 +45,7 @@ $translations = Translate::loadTranslation($model,$field);
                 $value = $translations[$key];
             }
             ?>
-            <div class="form-group">
+            <div class="form-group form-group-translations">
                 <label class="control-label" for="song-description"><?=$fieldLabel . " ($language)"?></label>
                 <?php
                 switch ($inputType) {

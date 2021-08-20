@@ -11,7 +11,8 @@ class MultiLangFieldsWidget extends InputWidget
     const TYPE_TEXTAREA   = 'TEXTAREA';
     
     public $attributeLabel = null;
-    public $inputType  = self::TYPE_TEXT_INPUT;
+    public $inputType      = self::TYPE_TEXT_INPUT;
+    public $modelClass     = null;
     
     
     public function init()
@@ -47,11 +48,12 @@ class MultiLangFieldsWidget extends InputWidget
     protected function renderWidget()
     {
         echo $this->render('index',[
-            'field'      => $this->attribute,
-            'model'      => $this->model,
+            'field'          => $this->attribute,
+            'model'          => $this->model,
+            'modelClass'          => $this->modelClass,
             'attributeLabel' => $this->attributeLabel,
-            'inputType'  => $this->inputType,
-            'id'         => $this->options['id'],
+            'inputType'      => $this->inputType,
+            'id'             => $this->options['id'],
         ]);
     }
 }

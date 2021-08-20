@@ -19,3 +19,8 @@
 .btn-translate-collapse .icon {
     background-image: url("../img/up.png");
 }
+
+.form-group-translations {
+    margin-right: 15px;
+    margin-left: 15px;
+}
