@@ -99,7 +99,7 @@ class Translate extends \yii\db\ActiveRecord
    
     public static function loadTranslation($model,$attribute = null,$modelClass = null,$useAppLanguage = false)
     {
-        $result          = [];
+        $result          = null;
         $appLanguage = Yii::$app->language;
         if ($model !== null && $model instanceof Model) {
             $objectClass = $modelClass !== null ? $modelClass : get_class($model);
