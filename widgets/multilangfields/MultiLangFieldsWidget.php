@@ -10,9 +10,12 @@ class MultiLangFieldsWidget extends InputWidget
     const TYPE_TEXT_INPUT = 'TEXT_INPUT';
     const TYPE_TEXTAREA   = 'TEXTAREA';
     
-    public $attributeLabel = null;
-    public $inputType      = self::TYPE_TEXT_INPUT;
-    public $modelClass     = null;
+    public $attributeLabel  = null;
+    public $inputType       = self::TYPE_TEXT_INPUT;
+    public $modelClass      = null;
+    public $modelId         = null;
+    public $attributeToSave = null;
+    public $attributeToLoad = null;
     
     
     public function init()
@@ -40,6 +43,9 @@ class MultiLangFieldsWidget extends InputWidget
     {
         Module::registerTranslations();
         $this->options['id'] .= '-translations';
+        if (!isset($this->attributeToSave)) {
+            $this->attributeToSave = $this->attribute;
+        }
     }
     
     /**
@@ -48,12 +54,14 @@ class MultiLangFieldsWidget extends InputWidget
     protected function renderWidget()
     {
         echo $this->render('index',[
-            'field'          => $this->attribute,
-            'model'          => $this->model,
-            'modelClass'     => $this->modelClass,
-            'attributeLabel' => $this->attributeLabel,
-            'inputType'      => $this->inputType,
-            'id'             => $this->options['id'],
+            'attributeToSave' => $this->attributeToSave,
+            'attributeToLoad' => $this->attributeToLoad,
+            'model'           => $this->model,
+            'modelClass'      => $this->modelClass,
+            'attributeLabel'  => $this->attributeLabel,
+            'inputType'       => $this->inputType,
+            'id'              => $this->options['id'],
+            'modelId'         => $this->modelId,
         ]);
     }
 }

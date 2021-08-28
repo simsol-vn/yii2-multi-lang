@@ -63,8 +63,10 @@ Please follow below steps to set up and use this extension.
   <?=$form->field($model,'attribute')->widget(MultiLangFieldsWidget::class)->label(false)?>
   ```
 - Available config:
-  - `attributeLabel`: In case you want to use another name for model attribute, default is model's attribute name.
-  - `inputType`: Default is text input, available options:
+  - `attributeLabel`: Optional. In case you want to use another name for model attribute, default is model's attribute name.
+  - `attributeToSave`: Optional. In case you want to save with a different attribute, default is model's attribute. Useful when working with custom model.
+  - `attributeToLoad`: Optional. In case you want to load saved translation value on edit with a different attribute, default is model's attribute. Useful when working with custom model.
+  - `inputType`: Optional. Default is text input, available options:
     - Text Input: MultiLangFieldsWidget::TYPE_TEXT_INPUT
     - Textarea: MultiLangFieldsWidget::TYPE_TEXTAREA
 
@@ -78,10 +80,11 @@ Please follow below steps to set up and use this extension.
 #### c. Query translations
 
 ```
- Translate::loadTranslation($model,$attribute = null,$modelClass = null,$useAppLanguage = false)
+ Translate::loadTranslation($model,$attribute = null,$modelId = null;$modelClass = null,$useAppLanguage = false)
 ```
 - ```$model```: Required. Model to load translations.
 - ```$attribute```: Optional. Translations for specified attribute will be queried if provided.
+- ```$modelId```: Optional. In case the model id is different from defined $model, useful when working with custom model.
 - ```$modelClass```: Optional. In case model class name is different from provided model. For example:  ```app\models\form\CustomerForm``` and ```app\models\Customer```
 - ```$useAppLanguage```: Optional. If true, value of ```Yii::$app->language``` will be used to query for current app language.
 
@@ -115,7 +118,7 @@ Result:
 ```
 
 ```
-Translate::loadTranslation($model,'title',null,true);
+Translate::loadTranslation($model,'title',null,null,true);
 
 Result:
 
@@ -123,7 +126,7 @@ Result:
 ```
 
 ```
-Translate::loadTranslation($model,null,null,true);
+Translate::loadTranslation($model,null,null,null,true);
 
 Result:
 

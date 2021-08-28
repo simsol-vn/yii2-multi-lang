@@ -94,16 +94,18 @@ class Translate extends \yii\db\ActiveRecord
                 }
             }
         }
+        
+        return $flag === 0;
     }
     
-   
-    public static function loadTranslation($model,$attribute = null,$modelClass = null,$useAppLanguage = false)
+    
+    public static function loadTranslation($model,$attribute = null,$modelId = null,$modelClass = null,$useAppLanguage = false)
     {
-        $result          = null;
+        $result      = null;
         $appLanguage = Yii::$app->language;
         if ($model !== null && $model instanceof Model) {
             $objectClass = $modelClass !== null ? $modelClass : get_class($model);
-            $objectId    = $model->getPrimaryKey();
+            $objectId    = $modelId !== null ? $modelId : $model->getPrimaryKey();
             $fieldsWhere = [
                 'AND',
                 ['id_object' => $objectId],
