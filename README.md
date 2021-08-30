@@ -80,13 +80,13 @@ Please follow below steps to set up and use this extension.
 #### c. Query translations
 
 ```
- Translate::loadTranslation($model,$attribute = null,$modelId = null;$modelClass = null,$useAppLanguage = false)
+ Translate::loadTranslation($model,$attribute = null,$modelId = null;$modelClass = null,$language = null)
 ```
 - ```$model```: Required. Model to load translations.
 - ```$attribute```: Optional. Translations for specified attribute will be queried if provided.
 - ```$modelId```: Optional. In case the model id is different from defined $model, useful when working with custom model.
 - ```$modelClass```: Optional. In case model class name is different from provided model. For example:  ```app\models\form\CustomerForm``` and ```app\models\Customer```
-- ```$useAppLanguage```: Optional. If true, value of ```Yii::$app->language``` will be used to query for current app language.
+- ```$language```: Optional. If passed, value will be used to query for specified language.
 
 - Query results: Result might be varied depends on provided parameters. See examples below:
 ```

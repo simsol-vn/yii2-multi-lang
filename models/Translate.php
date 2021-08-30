@@ -99,10 +99,9 @@ class Translate extends \yii\db\ActiveRecord
     }
     
     
-    public static function loadTranslation($model,$attribute = null,$modelId = null,$modelClass = null,$useAppLanguage = false)
+    public static function loadTranslation($model,$attribute = null,$modelId = null,$modelClass = null,$language = null)
     {
-        $result      = null;
-        $appLanguage = Yii::$app->language;
+        $result = null;
         if ($model !== null && $model instanceof Model) {
             $objectClass = $modelClass !== null ? $modelClass : get_class($model);
             $objectId    = $modelId !== null ? $modelId : $model->getPrimaryKey();
@@ -126,14 +125,14 @@ class Translate extends \yii\db\ActiveRecord
                         ['object_class' => $objectClass],
                         ['object_field' => $field],
                     ];
-                    if ($useAppLanguage === true) {
-                        $valuesWhere[] = ['language_code' => $appLanguage];
+                    if ($language !== null) {
+                        $valuesWhere[] = ['language_code' => $language];
                     }
                     $values = Translate::find()->select(['language_code','value'])->where($valuesWhere)->asArray()->all();
                     if ($values !== null && count($values) > 0) {
                         $translations = [];
                         foreach ($values as $value) {
-                            if ($useAppLanguage === true) {
+                            if ($language !== null) {
                                 $translations = $value['value'];
                             }else {
                                 $translations[$value['language_code']] = $value['value'];
