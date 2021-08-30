@@ -118,7 +118,7 @@ Result:
 ```
 
 ```
-Translate::loadTranslation($model,'title',null,null,true);
+Translate::loadTranslation($model,'title',null,null,'en');
 
 Result:
 
@@ -126,7 +126,7 @@ Result:
 ```
 
 ```
-Translate::loadTranslation($model,null,null,null,true);
+Translate::loadTranslation($model,null,null,null,'en');
 
 Result:
 
